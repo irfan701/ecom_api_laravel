@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class VisitorController extends Controller
 {
-    function getVisitorDetails()
+    function sendVisitorDetails()
     {
         $ip_address=$_SERVER['REMOTE_ADDR'];
         date_default_timezone_set("Asia/Dhaka");
