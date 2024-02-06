@@ -13,7 +13,10 @@ return new class extends Migration
     {
         Schema::create('visitors', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->string('ip_address');
+            $table->string('visit_time');
+            $table->string('visit_date');
+
         });
     }
 

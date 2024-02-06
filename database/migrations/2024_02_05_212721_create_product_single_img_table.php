@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('site_infos', function (Blueprint $table) {
+        Schema::create('product_single_img', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
         });
@@ -22,6 +22,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('site_infos');
+        Schema::dropIfExists('product_single_img');
     }
 };

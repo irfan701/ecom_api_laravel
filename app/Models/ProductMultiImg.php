@@ -8,4 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class ProductMultiImg extends Model
 {
     use HasFactory;
+    protected $table='product_multi_img';
+    protected $guarded=[];
+    public $timestamps=false;
 }

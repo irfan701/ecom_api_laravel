@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Visitor;
 use Illuminate\Http\Request;
 
-class VisitorController extends Controller
+class HomeSeoController extends Controller
 {
-
+    //
 }

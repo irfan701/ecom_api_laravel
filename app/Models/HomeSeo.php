@@ -5,10 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class ProductDetails extends Model
+class HomeSeo extends Model
 {
     use HasFactory;
-    protected $table='product_details';
+    protected $table='home_seo';
     protected $guarded=[];
     public $timestamps=false;
 }

@@ -11,14 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('sliders', function (Blueprint $table) {
+        Schema::create('home_seo', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('sub_title');
-            $table->string('product_code');
-            $table->string('text_color');
-            $table->string('bg_color');
-            $table->string('image');
+            $table->string('des',1000);
+            $table->string('keywords',1000);
+            $table->string('og_title');
+            $table->string('og_des',1000);
+            $table->string('og_sitename');
+            $table->string('og_url');
+            $table->string('og_img');
         });
     }
 
@@ -27,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('sliders');
+        Schema::dropIfExists('home_seo');
     }
 };

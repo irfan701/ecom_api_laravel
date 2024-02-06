@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Visitor extends Model
 {
     use HasFactory;
+    protected $table='visitors';
+    protected $guarded=[];
+    public $timestamps=false;
+
 }
