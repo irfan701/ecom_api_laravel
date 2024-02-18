@@ -5,10 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Category extends Model
+class CategoryLevelThree extends Model
 {
     use HasFactory;
-    protected $table='categories';
+    protected $table='category_level_three';
     protected $guarded=[];
     public $timestamps=false;
 }

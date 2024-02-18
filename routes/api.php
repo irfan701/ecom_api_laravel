@@ -42,7 +42,7 @@ Route::post('/email/verify',[AuthController::class,'emailVerify'])->name('email.
 //Route::prefix('category3')->group(function () {
 //    Route::get('/get/{pageNo}/{perPage}/{searchKey}',[CategoryController::class,'getData']);
 //    Route::post('/create',[CategoryController::class,'create']);
-//    Route::get('/read/{id}',[CategoryController::class,'read']);
+//    Route::get('/read/{id}',[CategoryController::class,'read']);Sass
 //    Route::post('/update/{id}',[CategoryController::class,'update']);
 //    Route::get('/delete/{id}',[CategoryController::class,'delete']);
 //});

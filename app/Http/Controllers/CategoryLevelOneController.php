@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\SubCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class CategoryController extends Controller
+class CategoryLevelOneController extends Controller
 {
     function getData(Request $request)
     {
@@ -60,21 +61,5 @@ class CategoryController extends Controller
     {
         $result = Category::where('id', $id)->delete();
         return response()->json(['result'=>$result]); //1
-    }
-
-    function getCategoryDetails()
-    {
-        $CategoryDetailsArray = [];
-        $parentCategory = Category::get();
-        foreach ($parentCategory as $category) {
-            $subCategory = SubCategory::where('cat_id', $category->id)->get();
-            $items = [
-                'cat_name' => $category->cat_name,
-                'cat_img' => $category->cat_image,
-                'subCategory' => $subCategory,
-            ];
-            array_push($CategoryDetailsArray, $items);
-        }
-        return $CategoryDetailsArray;
     }
 }
