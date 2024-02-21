@@ -2,15 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
-use App\Models\Category;
-use App\Models\SubCategory;
+use App\Http\Requests\CategoryLevelOneRequest;
+use App\Models\CategoryLevelOne;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 
 class CategoryLevelOneController extends Controller
 {
-    function getData(Request $request)
+    function get(Request $request)
     {
         $pageNo = (int)$request->pageNo;
         $perPage = (int)$request->perPage;
@@ -20,46 +20,48 @@ class CategoryLevelOneController extends Controller
 
         if ($searchValue !== "0") {
 //        let SearchRgx = {"$regex": searchValue, "$options": "i"}
-            $data['rows'] = DB::table('categories')
-                ->where('cat_name', "LIKE", $searchTerm)
+            $data['rows'] = DB::table('category_level_one')
+                ->where('name', "LIKE", $searchTerm)
                 ->skip($skipRow)->take($perPage)->get();
-            $data['total'] = DB::table('categories')->count();
+            $data['total'] = DB::table('category_level_one')->count();
 
         } else {
-            $data['rows'] = DB::table('categories')
+            $data['rows'] = DB::table('category_level_one')
                 ->orderBy('id', 'DESC')->skip($skipRow)->take($perPage)->get();
-            $data['total'] = DB::table('categories')->count();
+            $data['total'] = DB::table('category_level_one')->count();
         }
         return $data;
     }
 
-    function create(Request $request)
+    function create(CategoryLevelOneRequest $request)
     {
-        $result = Category::insert([
-            'cat_name' => $request->cat_name,
-            'cat_image' => $request->cat_image,
+        $result = CategoryLevelOne::insert([
+            'name' => $request->name,
+            'slug' => Str::slug($request->name),
+            'image' => $request->image,
         ]);
-        return response()->json(['result'=>$result]);
+        if ($result == true) return 1; else return 0;
     }
 
     function read(Request $request)
     {
-        $result = Category::where('id', $request->id)->first();
+        $result = CategoryLevelOne::where('id', $request->id)->first();
         return $result;
     }
 
-    function update(Request $request)
+    function update(CategoryLevelOneRequest $request)
     {
-        $result = Category::where('id', $request->id)->update([
-            'cat_name' => $request->cat_name,
-            'cat_image' => $request->cat_image,
+        $result = CategoryLevelOne::where('id', $request->id)->update([
+            'name' => $request->name,
+            'slug' => Str::slug($request->name),
+            'image' => $request->image,
         ]);
-        return response()->json(['result'=>$result]); //1
+        if ($result == true) return 1; else return 0;
     }
 
     function delete($id)
     {
-        $result = Category::where('id', $id)->delete();
-        return response()->json(['result'=>$result]); //1
+        $result = CategoryLevelOne::where('id', $id)->delete();
+        if ($result == true) return 1; else return 0;
     }
 }

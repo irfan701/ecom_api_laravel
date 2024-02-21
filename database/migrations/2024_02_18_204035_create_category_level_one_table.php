@@ -13,7 +13,8 @@ return new class extends Migration
     {
         Schema::create('category_level_one', function (Blueprint $table) {
             $table->id();
-            $table->string('cat_one_name');
+            $table->string('name');
+            $table->string('slug');
             $table->string('image');
         });
     }

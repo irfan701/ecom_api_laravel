@@ -14,7 +14,8 @@ return new class extends Migration
         Schema::create('category_level_two', function (Blueprint $table) {
             $table->id();
             $table->foreignId('cat_one_id')->constrained('category_level_one')->cascadeOnDelete();
-            $table->string('cat_two_name');
+            $table->string('name');
+            $table->string('slug');
 
         });
     }

@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('cat_one_id')->constrained('category_level_one')->cascadeOnDelete();
             $table->foreignId('cat_two_id')->constrained('category_level_two')->cascadeOnDelete();
-            $table->foreignId('cat_three_id')->constrained('category_level_three')->cascadeOnDelete();
+            $table->foreignId('cat_three_id')->nullable()->constrained('category_level_three')->cascadeOnDelete();
             $table->foreignId('brand_id')->constrained('brands')->cascadeOnDelete();
             $table->string('title');
             $table->string('product_code');
