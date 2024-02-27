@@ -36,9 +36,9 @@ class CategoryLevelOneController extends Controller
     function create(CategoryLevelOneRequest $request)
     {
         $result = CategoryLevelOne::insert([
-            'name' => $request->name,
-            'slug' => Str::slug($request->name),
-            'image' => $request->image,
+            'cat1_name' => $request->cat1_name,
+            'cat1_slug' => Str::slug($request->cat1_name),
+            'cat1_image' => $request->cat1_image,
         ]);
         if ($result == true) return 1; else return 0;
     }
@@ -52,9 +52,9 @@ class CategoryLevelOneController extends Controller
     function update(CategoryLevelOneRequest $request)
     {
         $result = CategoryLevelOne::where('id', $request->id)->update([
-            'name' => $request->name,
-            'slug' => Str::slug($request->name),
-            'image' => $request->image,
+            'cat1_name' => $request->cat1_name,
+            'cat1_slug' => Str::slug($request->cat1_name),
+            'cat1_image' => $request->cat1_image,
         ]);
         if ($result == true) return 1; else return 0;
     }

@@ -36,10 +36,10 @@ class CategoryLevelThreeController extends Controller
     function create(CategoryLevelThreeRequest $request)
     {
         $result = CategoryLevelThree::insert([
-            'name' => $request->name,
-            'slug' => Str::slug($request->name),
+            'cat3_name' => $request->cat3_name,
+            'cat3_slug' => Str::slug($request->cat3_name),
         ]);
-        if ($result == true) return 1; else return 0;
+        if ($result === true) return 1; else return 0;
     }
 
     function read(Request $request)
@@ -51,15 +51,15 @@ class CategoryLevelThreeController extends Controller
     function update(CategoryLevelThreeRequest $request)
     {
         $result = CategoryLevelThree::where('id', $request->id)->update([
-            'name' => $request->name,
-            'slug' => Str::slug($request->name),
+            'cat3_name' => $request->cat3_name,
+            'cat3_slug' => Str::slug($request->cat3_name),
         ]);
-        if ($result == true) return 1; else return 0;
+        if ($result === true) return 1; else return 0;
     }
 
     function delete($id)
     {
         $result = CategoryLevelThree::where('id', $id)->delete();
-        if ($result == true) return 1; else return 0;
+        if ($result === true) return 1; else return 0;
     }
 }

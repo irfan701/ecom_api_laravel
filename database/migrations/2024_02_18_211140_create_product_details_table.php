@@ -18,10 +18,13 @@ return new class extends Migration
             $table->string('img2')->nullable();
             $table->string('img3')->nullable();
             $table->string('img4')->nullable();
+            $table->string('images')->nullable();
             $table->string('color')->nullable();
             $table->string('size')->nullable();
-            $table->string('short_des');
-            $table->string('long_des');
+            $table->string('bullet point')->nullable();
+            $table->string('short_des')->nullable();
+            $table->string('long_des')->nullable();
+
         });
     }
 

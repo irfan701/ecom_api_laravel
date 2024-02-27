@@ -13,18 +13,29 @@ return new class extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('cat_one_id')->constrained('category_level_one')->cascadeOnDelete();
-            $table->foreignId('cat_two_id')->constrained('category_level_two')->cascadeOnDelete();
-            $table->foreignId('cat_three_id')->nullable()->constrained('category_level_three')->cascadeOnDelete();
+            $table->foreignId('cat1_id')->constrained('category_level_one')->cascadeOnDelete();
+            $table->foreignId('cat2_id')->constrained('category_level_two')->cascadeOnDelete();
+            $table->foreignId('cat3_id')->nullable()->constrained('category_level_three')->cascadeOnDelete();
             $table->foreignId('brand_id')->constrained('brands')->cascadeOnDelete();
+
             $table->string('title');
-            $table->string('product_code');
-            $table->string('sku')->nullable();
+            $table->string('qty')->nullable();
+            $table->string('color')->nullable();
+            $table->string('size')->nullable();
             $table->string('price');
             $table->string('special_price')->nullable();
-            $table->string('remark')->nullable();
+
+            $table->string('main_image')->nullable();
+
+            $table->string('slug')->nullable();
+            $table->string('tags')->nullable();
+            $table->string('pcode')->default(0);
+            $table->string('sku')->default(0);
+
             $table->string('star')->nullable();
-            $table->string('image')->nullable();
+            $table->string('remark')->nullable();
+
+            $table->string('status')->default(1);
             $table->timestamps();
         });
     }

@@ -16,7 +16,8 @@ class CategoryLevelOneRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name'=>'required|string|max:255',
+            'cat1_name'=>'required|string|max:255',
+           // 'image'=>'required'
         ];
     }
 }

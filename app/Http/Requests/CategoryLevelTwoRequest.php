@@ -13,7 +13,9 @@ class CategoryLevelTwoRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name'=>'required|string|max:255',
+            'cat1_id'=>'required|string|max:255',
+            'cat2_name'=>'required|string|max:255',
+
         ];
     }
 }

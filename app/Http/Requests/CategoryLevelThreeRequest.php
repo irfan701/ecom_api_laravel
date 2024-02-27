@@ -15,7 +15,7 @@ class CategoryLevelThreeRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name'=>'required|string|max:255',
+            'cat3_name'=>'required|string|max:255',
         ];
     }
 }
