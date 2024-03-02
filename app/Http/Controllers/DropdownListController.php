@@ -25,7 +25,9 @@ class DropdownListController extends Controller
     }
     function fetchProductCodeList()
     {
-        return Products::where('pcode','!=',0)->orderBy('id','DESC')->get();
+        return Products::with('category1','category2','brands')
+          //  ->select('')
+            ->where('pcode','!=',0)->orderBy('id','DESC')->get();
     }
 
 }

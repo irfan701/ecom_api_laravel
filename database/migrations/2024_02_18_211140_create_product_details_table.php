@@ -14,16 +14,20 @@ return new class extends Migration
         Schema::create('product_details', function (Blueprint $table) {
             $table->id();
             $table->foreignId('product_id')->constrained('products')->cascadeOnDelete();
+            $table->string('color')->nullable();
+            $table->string('size')->nullable();
+            $table->string('bullet_point')->nullable();
+            $table->string('short_des')->nullable();
+            $table->string('long_des')->nullable();
+            $table->string('main_image')->nullable();
+            $table->string('images')->nullable();
             $table->string('img1')->nullable();
             $table->string('img2')->nullable();
             $table->string('img3')->nullable();
             $table->string('img4')->nullable();
-            $table->string('images')->nullable();
-            $table->string('color')->nullable();
-            $table->string('size')->nullable();
-            $table->string('bullet point')->nullable();
-            $table->string('short_des')->nullable();
-            $table->string('long_des')->nullable();
+
+
+
 
         });
     }

@@ -26,6 +26,7 @@ Route::post('/reset/password', [AuthController::class, 'ResetPassword'])->name('
 Route::post('/email/verify/link', [AuthController::class, 'emailVerifyLinkToEmail'])->middleware('auth:sanctum');
 Route::post('/email/verify', [AuthController::class, 'emailVerify'])->name('email.verify')->middleware(['auth:sanctum', 'signed']);
 
+
 Route::group(['prefix' => 'category1', 'middleware' => ['auth:sanctum']], function () {
     Route::get('/get/{pageNo}/{perPage}/{searchKey}', [CategoryLevelOneController::class, 'get']);
     Route::post('/create', [CategoryLevelOneController::class, 'create']);
@@ -72,11 +73,17 @@ Route::get('/product/get/pcode', [DropdownListController::class, 'fetchProductCo
 //Products
 
 Route::post('/product/create/identity', [ProductsController::class, 'createIdentity']);
-Route::post('/product/create/details', [ProductsController::class, 'createDetails']);
+Route::post('/product/create/details/{product_id}', [ProductsController::class, 'createDetails']);
+//Route::post('/product/create/details', [ProductsController::class, 'createDetails']);
 Route::post('/product/create/images', [ProductsController::class, 'createImages']);
 
+Route::get('/product/read/details/{product_id}', [ProductDetailsController::class, 'readDetails']);
+
+Route::get('/product/get/{pageNo}/{perPage}/{searchKey}', [ProductsController::class, 'get']);
+Route::get('/product/delete/{id}', [ProductsController::class, 'delete']);
+
 //Route::prefix('product')->group(function () {
-//  //  Route::get('/get/{pageNo}/{perPage}/{searchKey}', [BrandController::class, 'get']);
+
 //    Route::post('/create', [BrandController::class, 'create']);
 //    Route::get('/read/{id}', [BrandController::class, 'read']);
 //    Route::post('/update/{id}', [BrandController::class, 'update']);
