@@ -23,4 +23,8 @@ class Products extends Model
     {
         return $this->belongsTo(Brand::class,'brand_id','id');
     }
+    function product_details()
+    {
+        return $this->hasOne(ProductDetails::class,'product_id','id');
+    }
 }

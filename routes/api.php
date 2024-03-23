@@ -15,6 +15,7 @@ use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\DropdownListController;
 use App\Http\Controllers\BrandController;
+use App\Http\Controllers\ProductImageController;
 
 Route::post('/login', [AuthController::class, 'onLogin'])->middleware('guest');
 Route::post('/register', [AuthController::class, 'onRegister'])->middleware('guest');
@@ -75,11 +76,15 @@ Route::get('/product/get/pcode', [DropdownListController::class, 'fetchProductCo
 Route::post('/product/create/identity', [ProductsController::class, 'createIdentity']);
 Route::post('/product/create/details/{product_id}', [ProductsController::class, 'createDetails']);
 //Route::post('/product/create/details', [ProductsController::class, 'createDetails']);
-Route::post('/product/create/images', [ProductsController::class, 'createImages']);
+Route::post('/product/create/main/image/{product_id}', [ProductImageController::class, 'createMainImage']);
+Route::post('/product/create/multi/image', [ProductImageController::class, 'createMultiImage']);
 
 Route::get('/product/read/details/{product_id}', [ProductDetailsController::class, 'readDetails']);
+Route::get('/product/read/identity/{product_id}', [ProductsController::class, 'readIdentity']);
+Route::post('/product/update/identity/{product_id}', [ProductsController::class, 'updateIdentity']);
 
-Route::get('/product/get/{pageNo}/{perPage}/{searchKey}', [ProductsController::class, 'get']);
+Route::get('/product/get/{pageNo}/{perPage}/{searchKey}', [ProductsController::class, 'getProducts']);
+Route::get('/product/incomplete/get/{pageNo}/{perPage}/{searchKey}', [ProductsController::class, 'getIncompleteProducts']);
 Route::get('/product/delete/{id}', [ProductsController::class, 'delete']);
 
 //Route::prefix('product')->group(function () {

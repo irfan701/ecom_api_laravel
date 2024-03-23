@@ -11,4 +11,8 @@ class ProductDetails extends Model
     protected $table='product_details';
     protected $guarded=[];
     public $timestamps=false;
+
+    function products(){
+        return $this->hasOne(Products::class,'product_id','id');
+    }
 }
